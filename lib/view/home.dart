@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project/goals_card.dart';
-import 'package:project/second_view.dart';
-import 'package:project/top_nav.dart';
+import 'package:project/view/second_view.dart';
+import 'package:project/view/top_nav.dart';
 
 import 'activity_routine_card.dart';
+import 'goals_card.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({ Key? key }) : super(key: key);
@@ -27,7 +27,6 @@ class _MyHomeState extends State<MyHome> {
       body: SafeArea(child: SingleChildScrollView(child: 
       Container(
           decoration: BoxDecoration(
-            color: Colors.red,
       borderRadius: BorderRadius.circular(10),
 
           image: DecorationImage(

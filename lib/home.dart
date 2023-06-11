@@ -1,6 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project/goals_card.dart';
 import 'package:project/second_view.dart';
 import 'package:project/top_nav.dart';
@@ -18,6 +18,12 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+      toolbarHeight: 0,
+      
+     systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white),
+  
+    ),
       body: SafeArea(child: SingleChildScrollView(child: 
       Container(
           decoration: BoxDecoration(
@@ -39,41 +45,18 @@ class _MyHomeState extends State<MyHome> {
               margin: EdgeInsets.only(top: 15,left: 8,right: 8,bottom: 8),
               child: Text("Must Do For Your Goals", style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),)),
           
-            ListView(
-              shrinkWrap: true,
-          children: [
-            CarouselSlider(
-                items: [
-                    
-                  //1st Image of Slider
-                     MyGoalsCard(assets: 'assets/lady_icon.png', time: '1 mins', titleone: 'Day 2: Step To Recharge',
-             titletwo: 'Meditation', titlethree: "Coach- Muskan", xp: '10 XP', backgroundAssets: 'assets/violet_gradient.png',),
+            Container(
+              margin: EdgeInsets.all(10),
+            height: MediaQuery.of(context).size.height * 0.27,  
+            child: ListView.builder(itemBuilder: (context, index){  
+                return    MyGoalsCard(assets: 'assets/lady_icon.png', time: '1 mins', titleone: 'Day 2: Step To Recharge',
+             titletwo: 'Meditation', titlethree: "Coach- Muskan", xp: '10 XP', backgroundAssets: 'assets/violet_gradient.png',);
             
-                    
-                  //2nd Image of Slider
-                 
-                      MyGoalsCard(assets: 'assets/lady_icon.png', time: '1 mins', titleone: 'Day 2: Step To Recharge',
-             titletwo: 'Meditation', titlethree: "Coach- Muskan", xp: '10 XP', backgroundAssets: 'assets/violet_gradient.png',),
-            
-
-                  
-  
-            ],
-                
-              //Slider Container properties
-                options: CarouselOptions(
-                  height: 180.0,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8,
-                ),
+              }, 
+              itemCount: 2,
+              scrollDirection: Axis.horizontal,),
             ),
-          ],
-        ),
+           
   
      Container(
               alignment: Alignment.topLeft,

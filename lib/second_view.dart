@@ -18,7 +18,7 @@ class SecondView extends StatelessWidget {
           ),),
         margin: EdgeInsets.all(2 ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
               child: Text("Your Level premium is about to \n expire, renew now",
